@@ -1,0 +1,42 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+    <h1>Appointments</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Hour</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Patient</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in appointments %}
+            <tr>
+                <td>
+                    {{a.day|date:"d/m/Y"}}
+                </td>
+                <td>
+                    {{a.hour}}
+                </td>
+                <td>
+                    {{a.duration}}
+                </td>
+                <td>
+                    {{a.name}}
+                </td>
+                <td>
+                    <!-- TODO: Change to a POST Method -->
+                    <button class="btn btn-danger" onclick="location.href='/appointment/delete/{{a.id}}'">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+        <input class="btn btn-primary" type="button" value="New Appointment" onclick="location.href='/appointment/add'" />
+
+{% endblock %}
