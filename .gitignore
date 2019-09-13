@@ -1,0 +1,6 @@
+.vscode/
+
+
+**/**/**.pyc
+appointments/__pycache__/**
+db.sqlite3

@@ -25,7 +25,7 @@ class Appointment(models.Model):
     duration = models.DurationField(default=15)
     name = models.CharField(max_length=254, blank=True, default='Patient')
     honorific = models.SmallIntegerField(default=1, choices=HONORIFIC_CHOICES)
-    # TODO: Separate responsabilities
+    # TODO: Separate responsabilities, save and show honorific
     # patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
     def clean(self):
